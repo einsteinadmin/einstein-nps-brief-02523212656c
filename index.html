@@ -251,6 +251,11 @@ blockquote .attr{display:block;font-style:normal;font-size:.7rem;color:var(--nav
     <div class="bar-row"><div class="bl">Responded only after 1st reminder</div><div class="bar-track"><div class="bar-fill" style="width:49%;background:var(--orange-500)">82</div></div></div>
     <div class="bar-row"><div class="bl">After anything later</div><div class="bar-track"><div class="bar-fill" style="width:4%;background:var(--grey-200);color:var(--grey-700)">0</div></div></div>
     <p style="margin-top:10px">Turning off the follow-up (floated in-thread) would roughly <b>halve response volume</b> — which makes the small-sample volatility everyone's complaining about <em>worse</em> — to prevent about one Brittany per year. The reminder-sourced detractors are also the same genuine complaints as initial-touch ones, not "stop texting me" protest votes. The tune-up worth making is Amanda's: the reminder currently fires <b>one day</b> after the first text. Space it 2–3 days.</p>
+    <div class="callout">
+      <h4>The actual sequence, from GatherUp's Request Setup (checked on two branches — identical config)</h4>
+      <p><b>Touch 1:</b> initial rating request (Email/SMS) → <b>Touch 2:</b> First Rating Reminder, ON, sends <b>1 day</b> after the initial → <b>Touch 3:</b> a "Second Rating Reminder" slot exists in GatherUp (would send 10 days after the first) but is <b>toggled OFF on every branch. There is no third ask.</b></p>
+      <p>⚠️ <b>Naming trap:</b> the thread's "2nd follow-up" IS the First Rating Reminder — the second <em>touch</em>. In GatherUp's own terms the "second reminder" is already off; the thing the thread means produces half our responses. The only change on the table is the <b>1-day → 2–3 day spacing</b> on the reminder that stays.</p>
+    </div>
 
     <h3>Finding 3 — Where the scores actually come from</h3>
     <p style="font-size:.85rem">Of the ~70 detractors who wrote comments:</p>
@@ -282,6 +287,11 @@ blockquote .attr{display:block;font-style:normal;font-size:.7rem;color:var(--nav
     <div class="grid2">
       <div class="card"><h4>The concession Mike &amp; Brian earn</h4><p style="font-size:.85rem">At typical branch volume, one detractor moves the quarter 1.5–2.5 points, the noise band is ±7ish, the Green band is 3 points wide, and branches live 1–3 points off the 90 line. <b>A single review genuinely can decide a band color at the margin.</b> That's real, and pretending otherwise loses the room. <b>Garland</b> is the live case: 85 on 58 responses — one point below the Red line, one or two reviews from a different color.</p></div>
       <div class="card"><h4>The concession the data refuses</h4><p style="font-size:.85rem"><b>Dallas is not noise.</b> 79 on 200 responses with 14 detractors — the most responses in the company, converging on the same score. The full-year detractor count agrees (Dallas leads with 29). The sample-size argument defends Garland's quarter; it cannot defend Dallas's. The worst score in the company is also the best-measured one.</p></div>
+    </div>
+
+    <div class="card">
+      <h4>Brian's ratio question — "for every detractor, how many promoters to move the score positive? Or is it variable?"</h4>
+      <p style="font-size:.85rem">Both. In the NPS formula a promoter and a detractor are equal and opposite: <b>one promoter exactly cancels one detractor</b> (each is ±1 in the same numerator), so netting positive after a detractor lands takes two promoter responses where you'd otherwise have had passives. And yes, it's variable — <b>how much</b> each one moves the score depends entirely on response volume: at Houston's 273 responses a detractor costs 0.7 points; at Garland's 58 it costs 3.4. Same detractor, five times the damage — which is Finding 5 in one sentence: the denominator is the defense.</p>
     </div>
 
     <h3>Finding 5 — The volatility fix is the response rate, and it's fully in the manager's control</h3>
@@ -372,7 +382,7 @@ blockquote .attr{display:block;font-style:normal;font-size:.7rem;color:var(--nav
   <div class="wrap">
     <p><b style="color:#fff">Sources:</b> GatherUp Customer Activity full-year pull, 8/27/26 (166 detractor records + per-customer activity-log timelines, 0 fetch errors) · GatherUp Success Report 8/27/26 · QGR Q2 manifest v0.12.1 (branch NPS, targets, response volumes) · Roundtable Slack thread 8/27/26 · Reichheld, <em>The Ultimate Question 2.0</em> (2011); "Net Promoter 3.0," HBR Nov–Dec 2021.</p>
     <p>Working file: <span style="color:#fff">Supporting Projects / Amanda – Customer Experience / NPS Detractor Analysis / 2026-08-27-detractor-analysis.md</span></p>
-    <p style="margin-top:10px">Prepared by Albert (Cameron's AI Chief of Staff) · August 27, 2026 · Internal — contains customer feedback excerpts and branch performance data. Not for external sharing. <span class="smallnote">v1.0 · 2026-08-27</span></p>
+    <p style="margin-top:10px">Prepared by Albert (Cameron's AI Chief of Staff) · August 27, 2026 · Internal — contains customer feedback excerpts and branch performance data. Not for external sharing. <span class="smallnote">v1.1 · 2026-08-27 (adds sequence config + Brian's ratio card)</span></p>
   </div>
 </div>
 
