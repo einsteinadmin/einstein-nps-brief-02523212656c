@@ -173,9 +173,9 @@ blockquote .attr{display:block;font-style:normal;font-size:.7rem;color:var(--nav
       <li><b>8/24</b> — customer added after her move</li>
       <li><b>8/25</b> — feedback request sent by SMS, delivered. No response.</li>
       <li class="hot"><b>8/26</b> — <b>1st reminder sent — one day later.</b> Delivered.</li>
-      <li class="hot"><b>8/26</b> — she opens the survey from the reminder, <b>selects 5 of 10</b>, texts back <b>"Stop,"</b> and unsubscribes from SMS.</li>
+      <li class="hot"><b>8/26</b> — she opens the survey from the reminder, <b>selects 5 of 10</b>, and <b>"Stop"</b> gets recorded — logged by GatherUp as an SMS reply, with an unsubscribe stamped the same day.</li>
     </ul>
-    <p>Two true things at once: she deliberately chose a middling-negative score (an opt-out looks like texting STOP without ever opening the survey — she opened it and picked 5), <em>and</em> our next-day reminder cadence annoyed her into it. Her score is real. So is the feedback about our follow-up.</p>
+    <p>Honest caveat on the mechanics: we can't tell from the log whether she texted the STOP keyword back or typed "stop" into the survey's comment box not knowing an unsubscribe option existed. Either way the message was the same — <em>enough texts</em> — and either way she first opened the survey and deliberately picked a 5. Her score is real. So is the feedback about our follow-up.</p>
     <p>A 5 is a detractor, it lands in a small branch's quarterly number, and Fort Worth is already the tightest NPS story in the company. Hence the debate.</p>
   </div>
 </section>
@@ -251,7 +251,7 @@ blockquote .attr{display:block;font-style:normal;font-size:.7rem;color:var(--nav
     <div class="bar-row"><div class="bl">Responded to initial request</div><div class="bar-track"><div class="bar-fill" style="width:51%;background:var(--blue-500)">84</div></div></div>
     <div class="bar-row"><div class="bl">Responded only after 1st reminder</div><div class="bar-track"><div class="bar-fill" style="width:49%;background:var(--orange-500)">82</div></div></div>
     <div class="bar-row"><div class="bl">After anything later</div><div class="bar-track"><div class="bar-fill" style="width:4%;background:var(--grey-200);color:var(--grey-700)">0</div></div></div>
-    <p style="margin-top:10px">Half of everything we know about unhappy customers arrives on the reminder — and those reminder-sourced detractors are the same genuine complaints as the initial-touch ones, not "stop texting me" protest votes. The reminder isn't up for debate in this brief: it stays. <b>The 1-day timing also stays</b> — asking while the move is fresh is why it converts, and stretching the gap trades real responses to spare roughly one annoyed customer a year. The Stops get handled at the pipeline level instead (Ruling item 5).</p>
+    <p style="margin-top:10px">Half of everything we know about unhappy customers arrives on the reminder — and those reminder-sourced detractors are the same genuine complaints as the initial-touch ones, not "stop texting me" protest votes. The reminder isn't up for debate in this brief: it stays. <b>The 1-day timing also stays</b> — asking while the move is fresh is why it converts, and stretching the gap trades real responses to spare roughly one annoyed customer a year. At two unsubscribes a year, the Stops are a cost of doing measurement, not a problem to engineer around.</p>
     <div class="callout">
       <h4>The actual sequence, from GatherUp's Request Setup (checked on two branches — identical config)</h4>
       <p><b>Touch 1:</b> initial rating request (Email/SMS) → <b>Touch 2:</b> First Rating Reminder, ON, sends <b>1 day</b> after the initial → <b>Touch 3:</b> a "Second Rating Reminder" slot exists in GatherUp (would send 10 days after the first) but is <b>toggled OFF on every branch. There is no third ask.</b></p>
@@ -335,7 +335,8 @@ blockquote .attr{display:block;font-style:normal;font-size:.7rem;color:var(--nav
       <div class="head"><span class="num">3</span><h4>Add the two metrics that are 100% manager-controlled: detractor recovery rate + response rate.</h4></div>
       <div class="body">
         <p>Gerald's best idea, upgraded by the data. <b>Recovery rate</b> measures the thing that would have saved the Fort Worth customer in Finding 4 — she told us in writing she'd have been fine if we'd gone into problem-solving mode, and nobody ever called her back. That save never happened, and today nothing on any scoreboard even notices. <b>Response rate</b> is the volatility fix (Finding 5): a manager who moves it from 9% to 30% does more for their score's stability than any deletion policy ever could.</p>
-        <p><b>How recovery gets counted</b> (Cameron's question): a recovery = a logged callback + a resolution the customer accepted (claim settled, redo done, refund taken) within the window — an operational record, like a closed claim. It does NOT require the customer to fill out a second survey. If they voluntarily re-score us higher, great — that new response counts in NPS like any other (see item 6) — but happiness-by-survey is a bonus signal, never the requirement, because most recovered customers won't fill out a second form and we're not going to nag them into one.</p>
+        <p><b>How recovery gets counted</b> (Cameron's question): a recovery = a logged callback + a resolution the customer accepted (claim settled, redo done, refund taken) — an operational record, like a closed claim. It does NOT require the customer to fill out a second survey; a voluntary re-score is bonus evidence (see item 5).</p>
+        <p><b>Being straight about where this stands: no tracking system for this exists today.</b> Nothing logs detractor callbacks anywhere right now — which is why the recovery number is currently unknowable. If we adopt it, it needs a home (candidates: a tag + note on the GatherUp customer record, a group on the claims/CET Monday board, or a simple shared log) and its accuracy will only ever be as good as branch self-reporting — though at ~14 detractors a month company-wide, this is a small, very auditable stream. Priority-wise it sits BEHIND response rate, which needs no build at all: GatherUp already measures it today.</p>
         <div class="against"><span class="tag">Against</span><p>"More metrics, more noise." — These replace arguing about the score with acting on it. Two numbers, both movable this week, both already visible in GatherUp.</p></div>
       </div>
     </div>
@@ -349,20 +350,12 @@ blockquote .attr{display:block;font-style:normal;font-size:.7rem;color:var(--nav
     </div>
 
     <div class="prop">
-      <div class="head"><span class="num">5</span><h4>Fix the instrument: keep the sequence exactly as-is, stop opt-outs from polluting the data.</h4></div>
+      <div class="head"><span class="num">5</span><h4>Brian's 2→10: the 2 stays — and after a real recovery, we're allowed to ask for an updated score.</h4></div>
       <div class="body">
-        <p>Brian's system-first instinct, adopted — with one correction to the thread: <b>an opt-out already exists and already works.</b> Replying STOP to any of our texts unsubscribes you instantly at the carrier level; that's exactly what Brittany did, and GatherUp honored it. The sequence itself (two touches, one day apart) also stays exactly as-is — the 1-day reminder converts <em>because</em> the move is still fresh, and it costs us about two unsubscribes a year.</p>
-        <p>The two real fixes: <b>① STOP-keyword replies get filtered out of the feedback pipeline</b> so an unsubscribe text can never again appear as a survey comment (the actual mechanical failure in the Brittany case), and <b>② the survey page gets a small "don't contact me again" link</b> — Amanda's idea — so someone who clicks in but doesn't want a relationship has a lane that isn't the 0–10 scale.</p>
-        <div class="against"><span class="tag">Against</span><p>"People will still get annoyed and leave spite-scores." — At the observed rate of roughly one per year, that's a cost of doing measurement. The pipeline filter means even those stop polluting comments; the score they choose is theirs to give.</p></div>
-      </div>
-    </div>
-
-    <div class="prop">
-      <div class="head"><span class="num">6</span><h4>Brian's 2→10: the 2 stays. The save gets paid in recovery rate.</h4></div>
-      <div class="body">
-        <p>The survey truthfully measured that moment; the recovery is a different, better fact — and it becomes the headline of the new recovery-rate metric. Rewriting scores post-recovery builds a revision-hounding loop (GatherUp ships a "request rating revision" button that would get worn out in a month), and it's the score-begging behavior Reichheld watched ruin the metric elsewhere.</p>
-        <p><b>Two things the data adds here.</b> First (Cameron's point): if a recovered customer voluntarily submits a <em>new</em> higher score later, the math already rewards the save — a fresh 10 offsets the old 2 in the same formula, no deletion needed. The score is self-repairing when recovery is real. Second, the reality check: <b>of all 166 detractors in the past 12 months, not one has ever submitted a second score.</b> The 2→10 scenario hasn't actually happened yet — because today nobody systematically calls detractors back. Item 3 is what makes it start happening.</p>
-        <div class="against"><span class="tag">Against</span><p>Gerald: "counting a recovered detractor punishes managers for doing exactly what you want." — It would, if recovery went unmeasured. It doesn't anymore: the save shows up in recovery rate immediately, and in the score itself whenever the customer chooses to say so. Integrity and incentive, both kept.</p></div>
+        <p>The survey truthfully measured that moment; the recovery is a different, better fact. And here's the part the math already handles (Cameron's point): if a recovered customer submits a <b>new, higher score, it immediately counterbalances the old detractor in the same formula</b> — no deletion needed. The score is self-repairing when recovery is real.</p>
+        <p><b>The reality check from the audit: of all 166 detractors in the past 12 months, not one has ever submitted a second score.</b> Not because recovery never happens — callbacks happen ad hoc through claims today — but because <b>we have never once asked a customer to update their GatherUp response.</b> We've asked customers to update public reviews before; the GatherUp re-score ask has simply never been part of the play. That's the missing move: after a genuine recovery, invite the update.</p>
+        <p>The one guardrail: the invitation comes <b>after a real, logged recovery — never instead of one.</b> Asking an un-recovered detractor to reconsider their score is the score-begging Reichheld watched ruin the metric elsewhere, and it stays banned.</p>
+        <div class="against"><span class="tag">Against</span><p>Gerald: "counting a recovered detractor punishes managers for doing exactly what you want." — It would, if the save were invisible. It isn't: the save shows up in recovery rate, and in the score itself whenever the recovered customer takes the re-score invitation. Integrity and incentive, both kept.</p></div>
       </div>
     </div>
 
@@ -390,7 +383,7 @@ blockquote .attr{display:block;font-style:normal;font-size:.7rem;color:var(--nav
   <div class="wrap">
     <p><b style="color:#fff">Sources:</b> GatherUp Customer Activity full-year pull, 8/27/26 (166 detractor records + per-customer activity-log timelines, 0 fetch errors) · GatherUp Success Report 8/27/26 · QGR Q2 manifest v0.12.1 (branch NPS, targets, response volumes) · Roundtable Slack thread 8/27/26 · Reichheld, <em>The Ultimate Question 2.0</em> (2011 — incl. "Be Careful About Linking NPS to Compensation," per Bain's netpromotersystem.com summary); Reichheld/Darnell/Burns, "Net Promoter 3.0," HBR Nov–Dec 2021 (hbr.org/2021/11/net-promoter-3-0) — claims verified 8/27/26.</p>
     <p>Working file: <span style="color:#fff">Supporting Projects / Amanda – Customer Experience / NPS Detractor Analysis / 2026-08-27-detractor-analysis.md</span></p>
-    <p style="margin-top:10px">Prepared by Albert (Cameron's AI Chief of Staff) · August 27, 2026 · Internal — contains customer feedback excerpts and branch performance data. Not for external sharing. <span class="smallnote">v1.2 · 2026-08-27 (Reichheld claims source-verified · 1-day reminder ruled kept · 2→10 base rate added · plain-English pass)</span></p>
+    <p style="margin-top:10px">Prepared by Albert (Cameron's AI Chief of Staff) · August 27, 2026 · Internal — contains customer feedback excerpts and branch performance data. Not for external sharing. <span class="smallnote">v1.3 · 2026-08-27 (instrument-fix item removed per Cameron · recovery-tracking honesty note · re-score invitation added · Brittany mechanics caveat)</span></p>
   </div>
 </div>
 
