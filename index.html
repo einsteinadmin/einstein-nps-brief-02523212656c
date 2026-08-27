@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>The Brittany Question — NPS Detractor Policy Brief</title>
+<style>
+:root{
+  --orange-50:#FEF6EC; --orange-100:#FDE3C2; --orange-500:#EF8B22; --orange-700:#D96B10; --orange-900:#CC5500;
+  --navy-50:#EEF1F4; --navy-100:#CDD5DA; --navy-400:#507080; --navy-500:#27343D; --navy-700:#1A2329;
+  --blue-50:#EBF4FB; --blue-500:#0979C3; --blue-700:#065E9A; --blue-900:#023B63;
+  --grey-50:#F4F5F5; --grey-100:#E2E3E4; --grey-200:#C0C2C4; --grey-500:#53575A; --grey-700:#363839;
+  --success:#69995D; --error:#CC0100;
+  --radius-sm:6px; --radius-md:12px; --radius-lg:20px;
+  --shadow-md:0 4px 12px rgba(39,52,61,.10);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{font-size:18px;scroll-behavior:smooth}
+body{font-family:'Roboto',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:var(--grey-500);background:#fff;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:860px;margin:0 auto;padding:0 20px}
+h1,h2,h3,h4{color:var(--navy-500);font-weight:700}
+a{color:var(--blue-500);text-decoration:none} a:hover{text-decoration:underline}
+
+/* header */
+.hero{background:var(--navy-500);color:#fff;padding:52px 0 44px}
+.hero .kicker{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--orange-500);font-weight:700;margin-bottom:10px}
+.hero h1{color:#fff;font-size:2.1rem;line-height:1.15;margin-bottom:14px}
+.hero p{color:var(--navy-100);max-width:640px;font-size:.95rem}
+.hero .meta{margin-top:18px;font-size:.72rem;color:var(--navy-400)}
+.hero .meta b{color:var(--navy-100)}
+
+/* section chrome */
+section{padding:44px 0}
+section:nth-of-type(even){background:var(--grey-50)}
+.sec-label{display:inline-block;background:var(--navy-500);color:#fff;font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:999px;margin-bottom:14px}
+h2{font-size:1.5rem;margin-bottom:16px}
+h3{font-size:1.05rem;margin:22px 0 8px}
+p{margin-bottom:12px;max-width:70ch}
+.lead{font-size:1.05rem;color:var(--grey-700)}
+
+/* cards */
+.card{background:#fff;border:1px solid var(--grey-100);border-radius:var(--radius-md);padding:20px 22px;margin:14px 0;box-shadow:var(--shadow-md)}
+.card h4{font-size:.95rem;margin-bottom:8px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:700px){.grid2{grid-template-columns:1fr}}
+
+/* voice cards */
+.voice{border-left:5px solid var(--grey-200)}
+.voice.side-a{border-left-color:var(--blue-500)}
+.voice.side-b{border-left-color:var(--orange-500)}
+.voice .who{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--navy-400);margin-bottom:6px}
+.voice p{font-size:.85rem;margin-bottom:8px}
+.voice p:last-child{margin-bottom:0}
+
+/* timeline */
+.timeline{list-style:none;margin:16px 0;position:relative;padding-left:26px}
+.timeline:before{content:'';position:absolute;left:8px;top:6px;bottom:6px;width:2px;background:var(--navy-100)}
+.timeline li{position:relative;padding:0 0 14px 8px;font-size:.85rem}
+.timeline li:before{content:'';position:absolute;left:-23px;top:5px;width:10px;height:10px;border-radius:50%;background:var(--blue-500)}
+.timeline li.hot:before{background:var(--orange-500)}
+.timeline li b{color:var(--navy-500)}
+
+/* verdict chips */
+.chip{display:inline-block;font-size:.62rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;border-radius:999px;vertical-align:middle}
+.chip.holds{background:#E7F0E4;color:#3E6B34}
+.chip.partial{background:var(--orange-100);color:var(--orange-900)}
+.chip.breaks{background:#F9E2E2;color:var(--error)}
+
+/* stat band */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:20px 0}
+@media(max-width:700px){.stats{grid-template-columns:repeat(2,1fr)}}
+.stat{background:var(--navy-500);border-radius:var(--radius-md);padding:16px 14px;text-align:center}
+.stat .n{font-size:1.7rem;font-weight:700;color:var(--orange-500);line-height:1.1}
+.stat .l{font-size:.66rem;color:var(--navy-100);margin-top:5px;line-height:1.35}
+
+/* bars */
+.bar-row{display:flex;align-items:center;gap:10px;margin:8px 0;font-size:.8rem}
+.bar-row .bl{width:200px;flex-shrink:0;text-align:right;color:var(--grey-700)}
+.bar-track{flex:1;background:var(--grey-100);border-radius:999px;height:22px;position:relative;overflow:hidden}
+.bar-fill{height:100%;border-radius:999px;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;color:#fff;font-size:.68rem;font-weight:700;min-width:34px}
+@media(max-width:700px){.bar-row{flex-wrap:wrap}.bar-row .bl{width:100%;text-align:left}}
+
+/* table */
+.tblwrap{overflow-x:auto;margin:16px 0}
+table{border-collapse:collapse;width:100%;font-size:.8rem;background:#fff;border-radius:var(--radius-sm);overflow:hidden}
+th{background:var(--navy-500);color:#fff;text-align:left;padding:9px 12px;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;white-space:nowrap}
+td{padding:8px 12px;border-bottom:1px solid var(--grey-100);white-space:nowrap;color:var(--grey-700)}
+tr.hl td{background:var(--orange-50)}
+td.good{color:var(--success);font-weight:700} td.bad{color:var(--error);font-weight:700}
+
+/* callouts */
+.callout{background:var(--blue-50);border-radius:var(--radius-md);padding:18px 22px;margin:16px 0}
+.callout.warm{background:var(--orange-50)}
+.callout h4{margin-bottom:6px;font-size:.9rem}
+.callout p{font-size:.85rem;margin-bottom:8px}
+.callout p:last-child{margin-bottom:0}
+blockquote{border-left:4px solid var(--orange-500);padding:4px 0 4px 16px;margin:14px 0;font-size:.9rem;color:var(--grey-700);font-style:italic}
+blockquote .attr{display:block;font-style:normal;font-size:.7rem;color:var(--navy-400);margin-top:6px}
+
+/* proposal */
+.prop{background:#fff;border:1px solid var(--grey-100);border-radius:var(--radius-md);margin:14px 0;overflow:hidden;box-shadow:var(--shadow-md)}
+.prop .head{display:flex;align-items:baseline;gap:12px;padding:14px 20px;background:var(--navy-50)}
+.prop .num{font-size:1.1rem;font-weight:700;color:var(--orange-900);flex-shrink:0}
+.prop .head h4{font-size:.95rem;margin:0}
+.prop .body{padding:14px 20px}
+.prop .body p{font-size:.85rem}
+.prop .against{border-top:1px dashed var(--grey-200);margin-top:10px;padding-top:10px}
+.prop .against .tag{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--error)}
+.prop .against p{color:var(--grey-500)}
+
+/* ballots */
+.reviewer-bar{position:sticky;top:0;z-index:50;background:var(--navy-500);color:#fff;padding:10px 0;box-shadow:var(--shadow-md)}
+.reviewer-bar .wrap{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.reviewer-bar .lbl{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--navy-100)}
+.rev-chip{font-size:.72rem;font-weight:700;padding:5px 14px;border-radius:999px;border:1.5px solid var(--navy-400);background:transparent;color:#fff;cursor:pointer;font-family:inherit}
+.rev-chip.on{background:var(--orange-500);border-color:var(--orange-500);color:var(--navy-900)}
+.ballot{border-top:1px dashed var(--grey-200);margin-top:12px;padding-top:12px}
+.ballot .btns{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.vote-btn{font-size:.74rem;font-weight:700;padding:6px 16px;border-radius:999px;border:1.5px solid var(--grey-200);background:#fff;color:var(--grey-700);cursor:pointer;font-family:inherit;transition:all .12s}
+.vote-btn:hover{border-color:var(--blue-500)}
+.vote-btn.agree.on{background:#E7F0E4;border-color:var(--success);color:#3E6B34}
+.vote-btn.disagree.on{background:#F9E2E2;border-color:var(--error);color:var(--error)}
+.vote-btn.discuss.on{background:var(--orange-100);border-color:var(--orange-700);color:var(--orange-900)}
+.ballot textarea{width:100%;margin-top:10px;border:1px solid var(--grey-200);border-radius:var(--radius-sm);padding:8px 10px;font-family:inherit;font-size:.8rem;color:var(--grey-700);min-height:44px;resize:vertical}
+.ballot textarea:focus{outline:2px solid var(--blue-500);border-color:var(--blue-500)}
+.ballot .saved{font-size:.62rem;color:var(--navy-400);margin-left:auto}
+.export-bar{background:var(--blue-50);border-radius:var(--radius-md);padding:18px 22px;margin:24px 0}
+.export-bar h4{font-size:.9rem;margin-bottom:6px}
+.export-bar p{font-size:.8rem}
+.export-btn{font-size:.8rem;font-weight:700;padding:10px 22px;border-radius:999px;border:none;background:var(--blue-500);color:#fff;cursor:pointer;font-family:inherit;margin-top:8px}
+.export-btn:hover{background:var(--blue-700)}
+.export-out{display:none;width:100%;margin-top:12px;border:1px solid var(--grey-200);border-radius:var(--radius-sm);padding:10px;font-family:monospace;font-size:.66rem;min-height:120px}
+.foot{background:var(--navy-700);color:var(--navy-100);padding:30px 0;font-size:.72rem}
+.foot .wrap p{margin-bottom:6px;max-width:none}
+.smallnote{font-size:.7rem;color:var(--navy-400)}
+
+/* toc */
+.toc{background:var(--navy-50);border-radius:var(--radius-md);padding:16px 22px;margin:24px auto 0;max-width:860px;font-size:.8rem}
+.toc b{color:var(--navy-500);font-size:.72rem;text-transform:uppercase;letter-spacing:.08em}
+.toc a{margin-right:16px;white-space:nowrap;display:inline-block;margin-top:4px}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="kicker">Leadership decision brief · Internal only</div>
+    <h1>The Brittany Question</h1>
+    <p class="lead" style="color:var(--navy-100)">One customer scored us a 5 and texted "Stop." The Roundtable spent a morning debating whether to delete her. This is the whole argument in one place — both sides steelmanned, Reichheld fact-checked, a full year of our own data, and a proposed ruling.</p>
+    <div class="meta">Prepared by Albert for Cameron, Brian &amp; Mike (+ Amanda, Matisen, Anne) · August 27, 2026 · Data: GatherUp full-year pull (166 detractors, per-customer message timelines) + QGR Q2 manifest v0.12.1</div>
+  </div>
+</div>
+
+<div class="toc"><b>Jump to:</b><br>
+  <a href="#case">1 · The case</a> <a href="#sides">2 · What y'all are saying</a> <a href="#reichheld">3 · What Reichheld actually says</a> <a href="#data">4 · What our numbers say</a> <a href="#proposal">5 · The proposed ruling</a>
+</div>
+
+<div class="reviewer-bar" id="reviewerBar">
+  <div class="wrap">
+    <span class="lbl">Reviewing as:</span>
+    <span id="revChips"></span>
+    <span class="saved" id="revStatus" style="font-size:.66rem;color:var(--navy-100)"></span>
+  </div>
+</div>
+
+<section id="case">
+  <div class="wrap">
+    <div class="sec-label">1 · The case</div>
+    <h2>What actually happened</h2>
+    <p class="lead">Brittany A., Fort Worth, August 26. Her complete GatherUp timeline:</p>
+    <ul class="timeline">
+      <li><b>8/24</b> — customer added after her move</li>
+      <li><b>8/25</b> — feedback request sent by SMS, delivered. No response.</li>
+      <li class="hot"><b>8/26</b> — <b>1st reminder sent — one day later.</b> Delivered.</li>
+      <li class="hot"><b>8/26</b> — she opens the survey from the reminder, <b>selects 5 of 10</b>, texts back <b>"Stop,"</b> and unsubscribes from SMS.</li>
+    </ul>
+    <p>Two true things at once: she deliberately chose a middling-negative score (an opt-out looks like texting STOP without ever opening the survey — she opened it and picked 5), <em>and</em> our next-day reminder cadence annoyed her into it. Her score is real. So is the feedback about our follow-up.</p>
+    <p>A 5 is a detractor, it lands in a small branch's quarterly number, and Fort Worth is already the tightest NPS story in the company. Hence the debate.</p>
+  </div>
+</section>
+
+<section id="sides">
+  <div class="wrap">
+    <div class="sec-label">2 · The sides</div>
+    <h2>What y'all are saying — steelmanned</h2>
+    <div class="grid2">
+      <div class="card voice side-b">
+        <div class="who">Mike + Brian (the branch view)</div>
+        <p><b>Managers shouldn't be dinged for what they can't control.</b> A single detractor moves a branch's quarter hard, and when the detractor is "I'm annoyed by your texts," coaching a team on it is impossible to defend with a straight face.</p>
+        <p><b>Fix the system first</b> so this can't happen (Brian) — removal only if it happens anyway. And the credibility of a crackdown depends on the scoreboard being defensible.</p>
+        <p><b>Brian's second question:</b> if a 2 gets service-recovered into a 10, does the 2 stick?</p>
+      </div>
+      <div class="card voice side-a">
+        <div class="who">Cameron + Amanda + Matisen (the metric view)</div>
+        <p><b>She's a detractor and the score stays.</b> Writing "stop" in the survey means she clicked, chose a number, and said something — deliberate acts (Matisen). Even "I hate your follow-up" is real feedback (Amanda).</p>
+        <p><b>Most companies don't curate their surveys.</b> Start deleting "unfair" ones and the number stops meaning anything.</p>
+        <p><b>Base-rate question first</b> (Cameron): how often does this actually happen? Nobody in the thread had a number. Now we do — Section 4.</p>
+      </div>
+    </div>
+    <div class="card voice">
+      <div class="who">Gerald's synthesis (via Mike)</div>
+      <p>The room is answering two different questions — <em>"is she a detractor?"</em> (yes) and <em>"is this branch-attributable?"</em> (no) — so nobody's actually disagreeing. One number is doing two jobs: measuring customer loyalty for the company and evaluating manager performance at the branch. <b>Route, don't delete:</b> root-cause tag every detractor, keep all of them in company NPS, count only attributable ones on the branch scorecard, add recovery-rate and response-rate as manager metrics, and fix the survey instrument so opt-outs can't enter the pipeline.</p>
+    </div>
+  </div>
+</section>
+
+<section id="reichheld">
+  <div class="wrap">
+    <div class="sec-label">3 · The citations</div>
+    <h2>What Reichheld actually says — fact-checked</h2>
+    <p>Gerald's post leaned on Fred Reichheld (creator of NPS, <em>The Ultimate Question 2.0</em>) and his 2021 follow-up. Claim by claim:</p>
+
+    <div class="card">
+      <h4>"In 2021 he published Net Promoter 3.0, essentially conceding the metric had been corrupted" <span class="chip partial">Partly holds</span></h4>
+      <p style="font-size:.85rem">NP 3.0 (HBR, Nov–Dec 2021) is real, and Reichheld does describe self-reported scores getting corrupted — his named mechanism is <b>tying scores to compensation</b> (the car-dealer "please give me a 10" problem). He introduced Earned Growth Rate as an <b>accounting audit to pair with NPS — not a retraction of it</b>. He remains NPS's biggest advocate. "Wrote a follow-up book to walk it back" oversells it.</p>
+    </div>
+    <div class="card">
+      <h4>"His closed-loop doctrine requires attribution — the score is a trigger to investigate, not a verdict" <span class="chip holds">Holds</span></h4>
+      <p style="font-size:.85rem">Accurate. The score was never supposed to be the deliverable; the root cause was. This is the strongest borrowed idea in Gerald's post, and the proposal adopts it (tags + callbacks, Section 5).</p>
+    </div>
+    <div class="card">
+      <h4>"At ~20 responses per branch per quarter, the confidence interval is ±20 — a 90 and a 72 are indistinguishable" <span class="chip breaks">Breaks on our data</span></h4>
+      <p style="font-size:.85rem">The statistics are right <em>for the hypothetical n he assumed</em>. But no Einstein branch is near n=20: our floor last quarter was <b>Tampa at 44</b>, the average is <b>~120</b>, and Dallas had <b>200</b>. At our real volumes the interval is roughly <b>±7</b>, not ±20. The weakened version of his point still matters (see Section 4) — the dramatized version doesn't describe us.</p>
+    </div>
+    <div class="card">
+      <h4>"Anyone using Reichheld to defend a hard 90 threshold on a branch scorecard is invoking the practice he walked back" <span class="chip partial">Partly holds</span></h4>
+      <p style="font-size:.85rem">Half-true about us. NPS <b>is</b> on the branch scorecard — every branch graded against the 90 line, every quarter, in bands. But it is <b>evaluation, not compensation</b> — nobody's pay moves on NPS — and Reichheld's corruption stories are comp-linked score-begging. Worth being honest though: the gaming pressure evaluation creates doesn't show up here as score-begging. It shows up as <b>this thread</b> — the urge to remove scores. Which is precisely the argument for a hard no-removals rule.</p>
+    </div>
+  </div>
+</section>
+
+<section id="data">
+  <div class="wrap">
+    <div class="sec-label">4 · The data</div>
+    <h2>What our own numbers say</h2>
+    <p class="lead">Every detractor from the past 12 months — all 166, with the full send/reminder/response timeline fetched for each one.</p>
+
+    <div class="stats">
+      <div class="stat"><div class="n">166</div><div class="l">detractors in 12 months (~3.6% of 4,583 responses)</div></div>
+      <div class="stat"><div class="n">2</div><div class="l">pure junk scores all year — Brittany's 5+"Stop" + one "Great service" mis-tap</div></div>
+      <div class="stat"><div class="n">49%</div><div class="l">of detractor responses arrived only after the reminder text</div></div>
+      <div class="stat"><div class="n">2</div><div class="l">unsubscribes in the entire year (both Fort Worth)</div></div>
+    </div>
+
+    <h3>Finding 1 — The problem we're debating is two reviews a year</h3>
+    <p>Of 166 detractors, exactly <b>two</b> are artifacts a removal policy would target. That's <b>1.2%</b>. Everything else is a customer with a real grievance. We nearly designed an adjudication court for two reviews a year.</p>
+
+    <h3>Finding 2 — The reminder isn't the villain. It's half our sample.</h3>
+    <div class="bar-row"><div class="bl">Responded to initial request</div><div class="bar-track"><div class="bar-fill" style="width:51%;background:var(--blue-500)">84</div></div></div>
+    <div class="bar-row"><div class="bl">Responded only after 1st reminder</div><div class="bar-track"><div class="bar-fill" style="width:49%;background:var(--orange-500)">82</div></div></div>
+    <div class="bar-row"><div class="bl">After anything later</div><div class="bar-track"><div class="bar-fill" style="width:4%;background:var(--grey-200);color:var(--grey-700)">0</div></div></div>
+    <p style="margin-top:10px">Turning off the follow-up (floated in-thread) would roughly <b>halve response volume</b> — which makes the small-sample volatility everyone's complaining about <em>worse</em> — to prevent about one Brittany per year. The reminder-sourced detractors are also the same genuine complaints as initial-touch ones, not "stop texting me" protest votes. The tune-up worth making is Amanda's: the reminder currently fires <b>one day</b> after the first text. Space it 2–3 days.</p>
+
+    <h3>Finding 3 — Where the scores actually come from</h3>
+    <p style="font-size:.85rem">Of the ~70 detractors who wrote comments:</p>
+    <div class="bar-row"><div class="bl">Crew execution</div><div class="bar-track"><div class="bar-fill" style="width:60%;background:var(--navy-500)">~60%</div></div></div>
+    <div class="bar-row"><div class="bl">Estimate / pricing / system</div><div class="bar-track"><div class="bar-fill" style="width:35%;background:var(--blue-500)">~35%</div></div></div>
+    <div class="bar-row"><div class="bl">Genuine noise</div><div class="bar-track"><div class="bar-fill" style="width:4%;background:var(--grey-200);color:var(--grey-700)">~1%</div></div></div>
+    <p style="margin-top:10px">Slow crews, damage, poor packing, items left behind dominate. The ~35% "system" slice (bad estimates, pricing structure, claims silence) is company-caused — but in nearly every one, <b>the recovery was still the branch's to win or lose:</b></p>
+    <blockquote>"I would have been fine if the company had immediately got into problem-solving mode and worked with me to complete the move… Instead, [the manager was] more interested in figuring out who to blame than in helping solve the problem… after the root cause conversation, no one reached out to me."
+      <span class="attr">— S. Iyer, Fort Worth → Houston move, Aug 2026. The estimate miss created the problem; the response converted a savable customer into a public 2-star.</span>
+    </blockquote>
+
+    <h3>Finding 4 — Nobody is small-sample. But the margin is real. Both things are true.</h3>
+    <div class="tblwrap">
+      <table>
+        <tr><th>Branch</th><th>Q2 responses</th><th>Q2 NPS</th><th>Detractors*</th><th>Response rate</th><th>1 detractor moves you</th></tr>
+        <tr><td>Houston</td><td>273</td><td class="good">94</td><td>3</td><td class="good">53.1%</td><td>−0.7</td></tr>
+        <tr><td>Dallas</td><td>200</td><td class="bad">79</td><td>14</td><td>18.2%</td><td>−1.0</td></tr>
+        <tr><td>San Antonio</td><td>135</td><td>82</td><td>7</td><td>22.4%</td><td>−1.5</td></tr>
+        <tr><td>Leander</td><td>134</td><td class="good">97</td><td>0</td><td>34.2%</td><td>−1.5</td></tr>
+        <tr><td>S. Austin</td><td>133</td><td>80</td><td>8</td><td>14.5%</td><td>−1.5</td></tr>
+        <tr><td>N. Austin</td><td>119</td><td>88</td><td>2</td><td class="bad">8.7%</td><td>−1.7</td></tr>
+        <tr><td>McKinney</td><td>102</td><td>80</td><td>6</td><td>21.3%</td><td>−2.0</td></tr>
+        <tr><td>Fort Worth</td><td>81</td><td>89</td><td>3</td><td>29.8%</td><td>−2.5</td></tr>
+        <tr class="hl"><td>Garland</td><td>58</td><td class="bad">85</td><td>1</td><td>21.4%</td><td>−3.4</td></tr>
+        <tr><td>Tampa</td><td>44</td><td class="good">96</td><td>1</td><td>20.5%</td><td>−4.5</td></tr>
+      </table>
+    </div>
+    <p class="smallnote">*Detractor counts from the 5/1–7/17 split window; responses are the full quarter (5/1–7/31) — labeled the same way in the QGR manifest. "Moves you" = points of NPS if one promoter response becomes a detractor.</p>
+    <div class="grid2">
+      <div class="card"><h4>The concession Mike &amp; Brian earn</h4><p style="font-size:.85rem">At typical branch volume, one detractor moves the quarter 1.5–2.5 points, the noise band is ±7ish, the Green band is 3 points wide, and branches live 1–3 points off the 90 line. <b>A single review genuinely can decide a band color at the margin.</b> That's real, and pretending otherwise loses the room. <b>Garland</b> is the live case: 85 on 58 responses — one point below the Red line, one or two reviews from a different color.</p></div>
+      <div class="card"><h4>The concession the data refuses</h4><p style="font-size:.85rem"><b>Dallas is not noise.</b> 79 on 200 responses with 14 detractors — the most responses in the company, converging on the same score. The full-year detractor count agrees (Dallas leads with 29). The sample-size argument defends Garland's quarter; it cannot defend Dallas's. The worst score in the company is also the best-measured one.</p></div>
+    </div>
+
+    <h3>Finding 5 — The volatility fix is the response rate, and it's fully in the manager's control</h3>
+    <p><b>Houston gets 53% of customers to respond. North Austin gets 8.7%.</b> Same survey, same company — a 6× spread. Every point of response rate grows the denominator, shrinks the noise, and cuts the self-selection bias (angry customers respond regardless; happy ones need the nudge). You don't stabilize a branch's NPS by deleting detractors — you stabilize it by tripling the sample. Houston proves it's achievable.</p>
+
+    <div class="callout warm">
+      <h4>Two free findings from reading all 166 comments</h4>
+      <p><b>"The new / inexperienced mover" is the single most repeated complaint motif of the year.</b> We named the quarter Training Camp before reading any of this. Receipts for the theme.</p>
+      <p><b>Three customers reported being promised follow-up that never came.</b> The claims/callback loop is quietly manufacturing detractors on its own.</p>
+    </div>
+  </div>
+</section>
+
+<section id="proposal">
+  <div class="wrap">
+    <div class="sec-label">5 · The ruling</div>
+    <h2>What we're proposing — and the argument against each piece</h2>
+
+    <div class="prop">
+      <div class="head"><span class="num">1</span><h4>Nothing gets deleted. Nothing gets excluded. Company AND branch numbers keep every score.</h4></div>
+      <div class="body">
+        <p>The "unfair" population is ~1% a year. A deletion or exclusion process needs an adjudicator, invites lobbying (it started within the hour — an agent argued a score away in its branch's favor), and is the exact corruption path Reichheld documented. Fairness is handled structurally (items 3–4), not case-by-case.</p>
+        <div class="against"><span class="tag">Against</span><p>"Managers get dinged for what they can't control." — True at the margin, ~1% of the time. The answer is the volatility fixes below, which help every quarter, not a removal court that helps twice a year and corrodes trust in the number forever.</p></div>
+      </div>
+    </div>
+
+    <div class="prop">
+      <div class="head"><span class="num">2</span><h4>Adopt Gerald's routing layer — root-cause tag every detractor (Service / Sales-Estimate / System / Unattributed).</h4></div>
+      <div class="body">
+        <p>Tags route the <b>fix</b>, not the score: estimate-caused detractors feed the estimate-accuracy work, system-caused ones feed whoever owns the cadence, crew-caused ones feed coaching. Silent detractors (58% give a score only) trigger a <b>mandatory callback attempt</b>; only a failed callback lands them in Unattributed. This is Reichheld's closed loop, done properly.</p>
+        <div class="against"><span class="tag">Against</span><p>"Tags will become the exclusion filter by the back door." — The guardrail is item 1: tags never change what counts. If we ever revisit that, it's a QGR-packet ruling with one adjudicator outside the branch, not a channel debate.</p></div>
+      </div>
+    </div>
+
+    <div class="prop">
+      <div class="head"><span class="num">3</span><h4>Add the two metrics that are 100% manager-controlled: detractor recovery rate + response rate.</h4></div>
+      <div class="body">
+        <p>Gerald's best idea, upgraded by the data: recovery rate pays the Iyer save that never happened, and response rate is the structural volatility fix (Finding 5). A manager who moves response rate from 9% to 30% does more for their score's stability than any deletion policy ever could — and coaching both is coaching real behavior, not a number.</p>
+        <div class="against"><span class="tag">Against</span><p>"More metrics, more noise." — These replace arguing about the score with acting on it. Two numbers, both movable this week, both visible in GatherUp already.</p></div>
+      </div>
+    </div>
+
+    <div class="prop">
+      <div class="head"><span class="num">4</span><h4>Take the band question to the next QGR packet: Green is 3 points wide, the noise is ±7.</h4></div>
+      <div class="body">
+        <p>The legitimate kernel of Gerald's whole post. At current volumes, band placement below 88 is tighter than the instrument honestly measures for smaller branches. Options to evaluate at packet time: rolling two-quarter NPS for branches under ~100 responses, trend arrows next to the band, or wider W/R bands. Manifest ruling, made once, not re-litigated per review.</p>
+        <div class="against"><span class="tag">Against</span><p>"You're moving the goalposts for weak branches." — No score changes and the 90 line stays. This is about whether the ruler's tick marks are finer than the ruler — a measurement-honesty question, the same standard we applied to damages and the Games basis.</p></div>
+      </div>
+    </div>
+
+    <div class="prop">
+      <div class="head"><span class="num">5</span><h4>Fix the instrument: opt-out choice in the survey, carrier STOPs never enter the pipeline, reminder spaced 2–3 days.</h4></div>
+      <div class="body">
+        <p>Brian's system-first instinct, adopted in full. An explicit "stop contacting me" option gives the annoyed a lane that isn't the 0–10 scale; SMS STOP keywords get filtered from feedback text; and the next-day reminder — the thing that actually manufactured the Brittany case — moves to a 2–3 day gap. The reminder itself stays: it's half our sample at a cost of two unsubscribes a year.</p>
+        <div class="against"><span class="tag">Against</span><p>"Just turn the reminder off." — That halves the sample to prevent ~one artifact a year, making the volatility problem worse. The data is unambiguous here.</p></div>
+      </div>
+    </div>
+
+    <div class="prop">
+      <div class="head"><span class="num">6</span><h4>Brian's 2→10: the 2 stays. The save gets paid in recovery rate.</h4></div>
+      <div class="body">
+        <p>The survey truthfully measured that moment; the recovery is a different, better fact — and it becomes the headline of the new recovery-rate metric. Rewriting scores post-recovery builds a revision-hounding loop (GatherUp ships a "request rating revision" button that would get worn out in a month), and it's the score-begging behavior Reichheld watched ruin the metric elsewhere.</p>
+        <div class="against"><span class="tag">Against</span><p>Gerald: "counting a recovered detractor punishes managers for doing exactly what you want." — It would, if recovery went unmeasured. It doesn't anymore: the same act that used to be invisible becomes the metric they're praised on. Integrity and incentive, both kept.</p></div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <h4>What we're deliberately NOT doing</h4>
+      <p><b>No Earned Growth Rate on branch scorecards.</b> EGR is a company-level accounting metric (revenue retention + referral-sourced growth). Its spirit is already tracked — 40% of our business is repeat/referral — and it may earn a place in company-level reporting, but it is not a quarterly branch instrument.</p>
+      <p><b>No standing "detractor court."</b> Tags are logged by the callback owner in the normal claims/CX flow. If a genuine dispute arises, it goes to one adjudicator outside the branch — and the score still doesn't change.</p>
+    </div>
+
+    <div class="prop" id="overall">
+      <div class="head"><span class="num">★</span><h4>Overall — ready to ratify this as the standing NPS ruling?</h4></div>
+      <div class="body"><p style="font-size:.85rem">Your read on the package as a whole. Anything you'd change lives best as a note on the specific item above — this one's the gut check.</p></div>
+    </div>
+
+    <div class="export-bar">
+      <h4>Done reviewing? Send your reactions back.</h4>
+      <p>Your votes and notes save in this browser as you go. Hit the button — it copies a summary to your clipboard. Paste it to Cameron in Slack (or drop it in the Roundtable channel) and Albert folds everyone's reactions into the final ruling.</p>
+      <button class="export-btn" id="exportBtn">Copy my reactions</button>
+      <textarea class="export-out" id="exportOut" readonly></textarea>
+    </div>
+  </div>
+</section>
+
+<div class="foot">
+  <div class="wrap">
+    <p><b style="color:#fff">Sources:</b> GatherUp Customer Activity full-year pull, 8/27/26 (166 detractor records + per-customer activity-log timelines, 0 fetch errors) · GatherUp Success Report 8/27/26 · QGR Q2 manifest v0.12.1 (branch NPS, targets, response volumes) · Roundtable Slack thread 8/27/26 · Reichheld, <em>The Ultimate Question 2.0</em> (2011); "Net Promoter 3.0," HBR Nov–Dec 2021.</p>
+    <p>Working file: <span style="color:#fff">Supporting Projects / Amanda – Customer Experience / NPS Detractor Analysis / 2026-08-27-detractor-analysis.md</span></p>
+    <p style="margin-top:10px">Prepared by Albert (Cameron's AI Chief of Staff) · August 27, 2026 · Internal — contains customer feedback excerpts and branch performance data. Not for external sharing. <span class="smallnote">v1.0 · 2026-08-27</span></p>
+  </div>
+</div>
+
+<script>
+(function(){
+  var KEY = 'nps-brief-ballot-v1';
+  var REVIEWERS = ['Brian','Mike','Cameron','Amanda','Matisen','Anne'];
+  var state;
+  try { state = JSON.parse(localStorage.getItem(KEY) || 'null') || {}; } catch(e){ state = {}; }
+  if (!state.reviewer) state.reviewer = '';
+  if (!state.votes) state.votes = {};   // votes[reviewer][itemId] = {v:'agree|disagree|discuss', n:'note'}
+
+  function save(){
+    try { localStorage.setItem(KEY, JSON.stringify(state)); flash(); } catch(e){}
+  }
+  var flashTimer;
+  function flash(){
+    var el = document.getElementById('revStatus');
+    if (!el) return;
+    el.textContent = 'Saved ✓';
+    clearTimeout(flashTimer);
+    flashTimer = setTimeout(function(){ el.textContent = state.reviewer ? '' : ''; }, 1200);
+  }
+  function myVotes(){
+    if (!state.reviewer) return {};
+    if (!state.votes[state.reviewer]) state.votes[state.reviewer] = {};
+    return state.votes[state.reviewer];
+  }
+
+  // reviewer chips
+  var chipWrap = document.getElementById('revChips');
+  REVIEWERS.forEach(function(name){
+    var b = document.createElement('button');
+    b.className = 'rev-chip' + (state.reviewer === name ? ' on' : '');
+    b.textContent = name;
+    b.onclick = function(){
+      state.reviewer = name;
+      save();
+      document.querySelectorAll('.rev-chip').forEach(function(c){ c.classList.toggle('on', c.textContent === name); });
+      renderAll();
+    };
+    chipWrap.appendChild(b);
+  });
+
+  // collect prop items (6 numbered + overall)
+  var props = Array.prototype.slice.call(document.querySelectorAll('.prop'));
+  var items = props.map(function(el, i){
+    var id = el.id || ('p' + (i + 1));
+    el.dataset.ballotId = id;
+    return { id: id, title: (el.querySelector('.head h4') || {}).textContent || id, el: el };
+  });
+
+  function buildBallot(item){
+    var body = item.el.querySelector('.body');
+    var div = document.createElement('div');
+    div.className = 'ballot';
+    div.innerHTML =
+      '<div class="btns">' +
+        '<button class="vote-btn agree" data-v="agree">👍 Agree</button>' +
+        '<button class="vote-btn disagree" data-v="disagree">👎 Disagree</button>' +
+        '<button class="vote-btn discuss" data-v="discuss">💬 Discuss live</button>' +
+        '<span class="saved"></span>' +
+      '</div>' +
+      '<textarea placeholder="Add a note (optional) — what would you change, or why the vote?"></textarea>';
+    body.appendChild(div);
+
+    div.querySelectorAll('.vote-btn').forEach(function(btn){
+      btn.onclick = function(){
+        if (!state.reviewer) { alert('Pick who you are at the top bar first — so your votes come back attributed.'); return; }
+        var mv = myVotes();
+        var cur = mv[item.id] || {};
+        cur.v = (cur.v === btn.dataset.v) ? '' : btn.dataset.v;  // toggle off on second click
+        mv[item.id] = cur;
+        save();
+        paint(item);
+      };
+    });
+    var ta = div.querySelector('textarea');
+    ta.addEventListener('input', function(){
+      if (!state.reviewer) return;
+      var mv = myVotes();
+      var cur = mv[item.id] || {};
+      cur.n = ta.value;
+      mv[item.id] = cur;
+      save();
+    });
+  }
+
+  function paint(item){
+    var div = item.el.querySelector('.ballot');
+    if (!div) return;
+    var mv = state.reviewer ? (state.votes[state.reviewer] || {}) : {};
+    var cur = mv[item.id] || {};
+    div.querySelectorAll('.vote-btn').forEach(function(btn){
+      btn.classList.toggle('on', btn.dataset.v === cur.v);
+    });
+    var ta = div.querySelector('textarea');
+    if (document.activeElement !== ta) ta.value = cur.n || '';
+  }
+
+  function renderAll(){ items.forEach(paint); }
+
+  items.forEach(buildBallot);
+  renderAll();
+
+  // export
+  document.getElementById('exportBtn').onclick = function(){
+    if (!state.reviewer) { alert('Pick who you are at the top bar first.'); return; }
+    var mv = state.votes[state.reviewer] || {};
+    var lines = ['NPS POLICY BRIEF — reactions from ' + state.reviewer + ' (' + new Date().toLocaleDateString() + ')'];
+    items.forEach(function(item, i){
+      var cur = mv[item.id] || {};
+      if (!cur.v && !cur.n) return;
+      var label = item.id === 'overall' ? 'OVERALL' : ('#' + (i + 1));
+      var v = cur.v ? cur.v.toUpperCase() : 'no vote';
+      lines.push(label + ' · ' + item.title.slice(0, 70) + ' → ' + v + (cur.n ? ' — "' + cur.n + '"' : ''));
+    });
+    if (lines.length === 1) lines.push('(no votes or notes recorded yet)');
+    var txt = lines.join('\n');
+    var out = document.getElementById('exportOut');
+    out.style.display = 'block';
+    out.value = txt;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(txt).then(function(){
+        document.getElementById('exportBtn').textContent = 'Copied ✓ — paste it to Cameron';
+      }).catch(function(){ out.select(); });
+    } else { out.select(); }
+  };
+})();
+</script>
+</body>
+</html>
