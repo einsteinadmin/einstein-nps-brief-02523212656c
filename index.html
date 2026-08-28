@@ -125,6 +125,35 @@ blockquote .attr{display:block;font-style:normal;font-size:.7rem;color:var(--nav
 .ballot textarea{width:100%;margin-top:10px;border:1px solid var(--grey-200);border-radius:var(--radius-sm);padding:8px 10px;font-family:inherit;font-size:.8rem;color:var(--grey-700);min-height:44px;resize:vertical}
 .ballot textarea:focus{outline:2px solid var(--blue-500);border-color:var(--blue-500)}
 .ballot .saved{font-size:.62rem;color:var(--navy-400);margin-left:auto}
+/* v2 — voting closed: the live ballot + reviewer picker are retired, reactions render as text below each item */
+.ballot,.reviewer-bar{display:none !important}
+/* v2 — verdicts + reactions */
+.verdict{margin-left:auto;flex-shrink:0;font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:4px 10px;border-radius:999px;white-space:nowrap}
+.verdict.ratified{background:var(--success);color:#fff}
+.verdict.cut{background:var(--error);color:#fff}
+.verdict.reshaped{background:var(--orange-500);color:#fff}
+.prop.is-cut .head{background:#FBEDED}
+.prop.is-cut .head h4{color:var(--grey-500);text-decoration:line-through;text-decoration-thickness:1px}
+.prop.is-ratified .head{background:#EEF4EC}
+.prop.is-reshaped .head{background:var(--orange-50)}
+.reactions{border-top:2px solid var(--navy-50);margin-top:14px;padding-top:12px}
+.reactions .rlabel{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--navy-400);margin-bottom:8px}
+.react{display:flex;gap:10px;font-size:.82rem;margin-bottom:9px;align-items:flex-start}
+.react:last-child{margin-bottom:0}
+.react .who{flex-shrink:0;width:64px;font-weight:700;color:var(--navy-500)}
+.react .vote{flex-shrink:0;width:74px;font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:2px 0}
+.react .vote.a{color:var(--success)} .react .vote.d{color:var(--error)} .react .vote.q{color:var(--orange-700)}
+.react .said{color:var(--grey-500);font-style:italic}
+.tally{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0 4px}
+.tally .t{background:#fff;border:1px solid var(--grey-100);border-radius:var(--radius-sm);padding:8px 12px;font-size:.75rem;box-shadow:var(--shadow-md)}
+.tally .t b{display:block;color:var(--navy-500);font-size:.85rem}
+.ruling{background:#fff;border:1px solid var(--grey-100);border-left:5px solid var(--success);border-radius:var(--radius-md);padding:16px 20px;margin:12px 0;box-shadow:var(--shadow-md)}
+.ruling.dropped{border-left-color:var(--error)}
+.ruling .rnum{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--navy-400);margin-bottom:4px}
+.ruling h4{font-size:.95rem;margin-bottom:6px}
+.ruling p{font-size:.84rem;margin-bottom:6px}
+.ruling p:last-child{margin-bottom:0}
+.closed-note{background:var(--navy-50);border-radius:var(--radius-md);padding:14px 20px;margin:20px 0;font-size:.82rem;color:var(--grey-700)}
 .export-bar{background:var(--blue-50);border-radius:var(--radius-md);padding:18px 22px;margin:24px 0}
 .export-bar h4{font-size:.9rem;margin-bottom:6px}
 .export-bar p{font-size:.8rem}
@@ -147,13 +176,14 @@ blockquote .attr{display:block;font-style:normal;font-size:.7rem;color:var(--nav
   <div class="wrap">
     <div class="kicker">Leadership decision brief · Internal only</div>
     <h1>The Brittany Question</h1>
-    <p class="lead" style="color:var(--navy-100)">One customer scored us a 5 and texted "Stop." The Roundtable spent a morning debating whether to delete her. This is the whole argument in one place — both sides steelmanned, Reichheld fact-checked, a full year of our own data, and a proposed ruling.</p>
-    <div class="meta">Prepared by Albert for Cameron, Brian &amp; Mike (+ Amanda, Matisen, Anne) · August 27, 2026 · Data: GatherUp full-year pull (166 detractors, per-customer message timelines) + QGR Q2 manifest v0.12.1</div>
+    <p class="lead" style="color:var(--navy-100)">One customer scored us a 5 and texted "Stop." The Roundtable spent a morning debating whether to delete her. This is the whole argument in one place — both sides steelmanned, Reichheld fact-checked, a full year of our own data, and the ruling it produced.</p>
+    <p class="lead" style="color:#fff;font-weight:700;margin-top:12px">Reactions are in. Two proposals ratified, two voted down, one reshaped by the people who rejected it. → <a href="#landed" style="color:var(--orange-500)">Where it landed</a></p>
+    <div class="meta">Prepared by Albert for Cameron, Brian &amp; Mike (+ Amanda, Matisen, Anne) · Brief 8/27/2026 · <b>Reactions folded 8/28/2026</b> · Data: GatherUp full-year pull (166 detractors, per-customer message timelines) + QGR Q2 manifest v0.12.1</div>
   </div>
 </div>
 
 <div class="toc"><b>Jump to:</b><br>
-  <a href="#case">1 · The case</a> <a href="#sides">2 · What y'all are saying</a> <a href="#reichheld">3 · What Reichheld actually says</a> <a href="#data">4 · What our numbers say</a> <a href="#proposal">5 · The proposed ruling</a>
+  <a href="#case">1 · The case</a> <a href="#sides">2 · What y'all are saying</a> <a href="#reichheld">3 · What Reichheld actually says</a> <a href="#data">4 · What our numbers say</a> <a href="#landed"><b>5 · Where it landed</b></a> <a href="#proposal">6 · The original ballot</a>
 </div>
 
 <div class="reviewer-bar" id="reviewerBar">
@@ -310,52 +340,142 @@ blockquote .attr{display:block;font-style:normal;font-size:.7rem;color:var(--nav
   </div>
 </section>
 
+<section id="landed">
+  <div class="wrap">
+    <div class="sec-label">5 · Where it landed</div>
+    <h2>The ruling, after everyone weighed in</h2>
+    <p class="lead">Brian, Amanda and Mike all sent reactions. Five proposals went out; <b>two were ratified unanimously, two were voted down, and one came back reshaped by the people who rejected it.</b> What follows is the version to ratify — the original ballot and every response is preserved below it.</p>
+
+    <div class="tally">
+      <div class="t"><b>3 of 3</b> ratified item 1</div>
+      <div class="t"><b>3 of 3</b> ratified item 5</div>
+      <div class="t"><b>2 of 3</b> cut the routing layer</div>
+      <div class="t"><b>3 of 3</b> rejected per-branch bands</div>
+      <div class="t"><b>0</b> asked to delete a score</div>
+    </div>
+
+    <div class="ruling">
+      <div class="rnum">Ruling 1 · ratified 3 of 3</div>
+      <h4>Nothing gets deleted. Nothing gets excluded. Company and branch numbers keep every score.</h4>
+      <p>The one item nobody argued with — and the one where a mind actually changed. Amanda came in from the shield-the-branch side and reversed herself in writing: a genuinely delighted customer doesn't rate us a 5 over a text message. Brian got to the same place from the data: <em>"where is that line drawn once you start curating the responses."</em></p>
+    </div>
+
+    <div class="ruling">
+      <div class="rnum">Ruling 2 · reshaped by Mike and Brian</div>
+      <h4>Response <em>timing</em> becomes the manager metric. Recovery rate is cut.</h4>
+      <p>Grading managers on whether an upset customer <em>becomes</em> happy failed 2 to 1 — Mike's objection is that a real share of detractors will never be satisfied no matter what we spend, so the outcome isn't the manager's to control. He then handed over the version that works: <b>how fast a manager responds to a low score is entirely in their control.</b> Brian, at 50/50, wanted exactly the same thing — <em>"context representing the workload a manager does to respond."</em></p>
+      <p><b>Still to settle:</b> the definition (hours to first logged response on a detractor) and where it lives. Response <em>rate</em> stays in as the free half — GatherUp already measures it, no build required.</p>
+    </div>
+
+    <div class="ruling">
+      <div class="rnum">Ruling 3 · replaces the band proposal</div>
+      <h4>Mid-quarter reads are coaching. The grade stamps at three months. The fix for volatility is more responses, not a longer window.</h4>
+      <p>All three rejected per-branch band widths, for the same reason: don't move the goalposts. Brian wanted scorecard consistency quarter to quarter; Amanda pointed out a small branch is in some ways <em>harder</em>, not easier; Mike said plainly the goalpost shouldn't differ by branch.</p>
+      <p><b>But the problem they were pointing at is real, and it isn't the bands.</b> It's what a mid-quarter number gets used for. Mike's actual example: we walk into Fort Worth four weeks into a quarter, they've taken one bad review, and they hear that they're behind. That's demoralizing — and it's a framing failure, not a measurement one.</p>
+      <p><b>The ruling:</b> a mid-quarter NPS read is a <b>coaching update, not a grade</b>. It sounds like <em>"here's where your score sits today, here's your response rate, here's how to get more promoters before this gets stamped"</em> — never <em>"you're underperforming."</em> The grade is stamped once, at the end of the quarter. <b>No rolling six-month window</b> — the full-year audit already showed a three-month window carries enough volume at every branch (company average ~120 responses a quarter, the smallest floor 44). The honest lever is response rate: North Austin sits at 8.7% while Houston pulls 53.1%. Closing that gap does more for score stability than any change to the ruler.</p>
+    </div>
+
+    <div class="ruling">
+      <div class="rnum">Ruling 4 · ratified 3 of 3</div>
+      <h4>The 2 stays. After a logged recovery, we're allowed to invite an updated score.</h4>
+      <p>Unanimous, and Mike sharpened it: the invitation comes after the recovery is <em>attempted</em>, never instead of it. A new higher score counterbalances the old detractor in the same formula — the number repairs itself when the recovery is real.</p>
+    </div>
+
+    <div class="ruling dropped">
+      <div class="rnum">Dropped · 2 of 3 against</div>
+      <h4>Gerald's root-cause routing layer — cut for complexity.</h4>
+      <p>Brian: <em>"complexity for complexity sake then I am out."</em> Amanda: <em>"too messy, especially when we have different people working in different branches at all times doing sales."</em> Mike agreed with it but gave no reasoning. Two of the three people who would have to run it say it won't survive contact with the floor, so it doesn't ship. The problem it was meant to solve — routing fixes rather than arguing scores — is handled by response timing plus the existing claims flow.</p>
+    </div>
+
+    <div class="callout warm">
+      <h4>Two open items before this is final</h4>
+      <p><b>Amanda's overall vote was DISCUSS, not agree</b> — though her written comment reads as agreement with the substance (<em>"if we start picking and choosing reviews, then accountability gets lost and more excuses start to happen"</em>). Worth confirming directly rather than assuming.</p>
+      <p><b>Brian volunteered to carry this down.</b> His words: <em>"if we can write this up and clearly define some of this and present that to our managers so everyone understands then I feel confident leading my managers on these principles."</em> The manager one-pager exists — that's the ask he made, answered.</p>
+    </div>
+  </div>
+</section>
+
 <section id="proposal">
   <div class="wrap">
-    <div class="sec-label">5 · The ruling</div>
-    <h2>What we're proposing — and the argument against each piece</h2>
+    <div class="sec-label">6 · The original ballot</div>
+    <h2>What we proposed — and exactly what each of you said back</h2>
+    <p class="lead">Preserved as the record. Every vote and quote below is verbatim from the Sky Board review thread.</p>
 
-    <div class="prop">
-      <div class="head"><span class="num">1</span><h4>Nothing gets deleted. Nothing gets excluded. Company AND branch numbers keep every score.</h4></div>
+    <div class="prop is-ratified">
+      <div class="head"><span class="num">1</span><h4>Nothing gets deleted. Nothing gets excluded. Company AND branch numbers keep every score.</h4><span class="verdict ratified">Ratified 3/3</span></div>
       <div class="body">
         <p>The "unfair" population is ~1% a year. A deletion or exclusion process needs an adjudicator, invites lobbying (it started within the hour — an agent argued a score away in its branch's favor), and is the exact corruption path Reichheld documented. Fairness is handled structurally (items 3–4), not case-by-case.</p>
         <div class="against"><span class="tag">Against</span><p>"Managers get dinged for what they can't control." — True at the margin, ~1% of the time. The answer is the volatility fixes below, which help every quarter, not a removal court that helps twice a year and corrodes trust in the number forever.</p></div>
+        <div class="reactions">
+          <div class="rlabel">What you said</div>
+          <div class="react"><span class="who">Brian</span><span class="vote a">Agree</span><span class="said">"I guess I agree after seeing how minimal these are and I agree that I don't like the idea of deleting because where is that line drawn once you start curating the responses."</span></div>
+          <div class="react"><span class="who">Amanda</span><span class="vote a">Agree</span><span class="said">"After pondering on this a little bit more, I disagree that this is something the managers cannot control. I don't think a perfectly happy customer rates us a five even if they want the text messaging to stop. If they were blown away by our service, this would not be an issue… I don't think we should exclude any type of feedback or NPS surveys."</span></div>
+          <div class="react"><span class="who">Mike</span><span class="vote a">Agree</span><span class="said">"I agree when we are talking about long term data… The original concern is that we are being reactive to 3 weeks of current data and in that small data set 1 bad detractor can swing a branch's score wildly… it is demoralizing to after one bad NPS go to a branch and say you are underperforming."</span></div>
+        </div>
       </div>
     </div>
 
-    <div class="prop">
-      <div class="head"><span class="num">2</span><h4>Adopt Gerald's routing layer — root-cause tag every detractor (Service / Sales-Estimate / System / Unattributed).</h4></div>
+    <div class="prop is-cut">
+      <div class="head"><span class="num">2</span><h4>Adopt Gerald's routing layer — root-cause tag every detractor (Service / Sales-Estimate / System / Unattributed).</h4><span class="verdict cut">Cut 2/1</span></div>
       <div class="body">
         <p>Tags route the <b>fix</b>, not the score: estimate-caused detractors feed the estimate-accuracy work, system-caused ones feed whoever owns the follow-up cadence, crew-caused ones feed coaching. Silent detractors (58% give a score only) trigger a <b>mandatory callback attempt</b>; only a failed callback lands them in Unattributed. This is Reichheld's closed loop — the score is the trigger to investigate, the root cause is the deliverable.</p>
         <div class="against"><span class="tag">Against</span><p>The risk: once tags exist, someone will eventually argue "System-tagged ones shouldn't count against my branch" — and the tag layer quietly becomes a deletion policy with better branding. The guardrail: <b>tags never change what counts, period</b> — they only change where the fix gets routed and what a coaching conversation is about. If that rule is ever to be revisited, it happens at a QGR packet review, not per-review in a Slack thread.</p></div>
+        <div class="reactions">
+          <div class="rlabel">What you said — this is the one that got cut</div>
+          <div class="react"><span class="who">Brian</span><span class="vote d">Disagree</span><span class="said">"I think I am in the against group here as the tags seem to add complexity that is not necessary nor does it bring value to the real issue of if a manager has control or not over the score they receive. So if this is adding complexity for complexity sake then I am out."</span></div>
+          <div class="react"><span class="who">Amanda</span><span class="vote d">Disagree</span><span class="said">"I think this is just too messy, especially when we have different people working in different branches at all times doing sales."</span></div>
+          <div class="react"><span class="who">Mike</span><span class="vote a">Agree</span><span class="said">(no comment given)</span></div>
+        </div>
       </div>
     </div>
 
-    <div class="prop">
-      <div class="head"><span class="num">3</span><h4>Add the two metrics that are 100% manager-controlled: detractor recovery rate + response rate.</h4></div>
+    <div class="prop is-reshaped">
+      <div class="head"><span class="num">3</span><h4>Add the two metrics that are 100% manager-controlled: detractor recovery rate + response rate.</h4><span class="verdict reshaped">Reshaped</span></div>
       <div class="body">
         <p>Gerald's best idea, upgraded by the data. <b>Recovery rate</b> measures the thing that would have saved the Fort Worth customer in Finding 4 — she told us in writing she'd have been fine if we'd gone into problem-solving mode, and nobody ever called her back. That save never happened, and today nothing on any scoreboard even notices. <b>Response rate</b> is the volatility fix (Finding 5): a manager who moves it from 9% to 30% does more for their score's stability than any deletion policy ever could.</p>
         <p><b>How recovery gets counted</b> (Cameron's question): a recovery = a logged callback + a resolution the customer accepted (claim settled, redo done, refund taken) — an operational record, like a closed claim. It does NOT require the customer to fill out a second survey; a voluntary re-score is bonus evidence (see item 5).</p>
         <p><b>Being straight about where this stands: no tracking system for this exists today.</b> Nothing logs detractor callbacks anywhere right now — which is why the recovery number is currently unknowable. If we adopt it, it needs a home (candidates: a tag + note on the GatherUp customer record, a group on the claims/CET Monday board, or a simple shared log) and its accuracy will only ever be as good as branch self-reporting — though at ~14 detractors a month company-wide, this is a small, very auditable stream. Priority-wise it sits BEHIND response rate, which needs no build at all: GatherUp already measures it today.</p>
         <div class="against"><span class="tag">Against</span><p>"More metrics, more noise." — These replace arguing about the score with acting on it. Two numbers, both movable this week, both already visible in GatherUp.</p></div>
+        <div class="reactions">
+          <div class="rlabel">What you said — recovery rate died, response timing survived</div>
+          <div class="react"><span class="who">Brian</span><span class="vote q">Discuss</span><span class="said">"I am 50/50 here. If this can be something we easily design and can work and manage and we can be consistent for tracking it then I am open… I lean towards not over complicating it right now BUT I do like having some sort of context representing the workload a manager does to respond and resolve a detractors score."</span></div>
+          <div class="react"><span class="who">Amanda</span><span class="vote d">Disagree</span><span class="said">(no comment given)</span></div>
+          <div class="react"><span class="who">Mike</span><span class="vote d">Disagree</span><span class="said">"I don't like the idea of managers getting graded on how the customer responds as a large portion will never be happy no matter how big a hit the company takes. I would agree with managers being graded on their response timing (ie how quickly they responded to a low NPS or review) as that is very much in their control."</span></div>
+        </div>
       </div>
     </div>
 
-    <div class="prop">
-      <div class="head"><span class="num">4</span><h4>Take the band question to the next QGR packet: Green is 3 points wide, the noise is ±7.</h4></div>
+    <div class="prop is-cut">
+      <div class="head"><span class="num">4</span><h4>Take the band question to the next QGR packet: Green is 3 points wide, the noise is ±7.</h4><span class="verdict cut">Rejected 3/3</span></div>
       <div class="body">
         <p>The legitimate kernel of Gerald's whole post, in plain English: our scorecard sorts branches into colors that are 3 points apart (Green is 88–90.9), but at a small branch's volume the score naturally wobbles about ±3–4 points a quarter even when nothing about their service changed. When the wobble is bigger than the gap between colors, a band change can be luck, not performance. Nobody's proposing to move the 90 line — the question is whether smaller branches should be read over a <b>longer window</b> (say, a rolling two quarters, which doubles their sample and halves the wobble) or with a <b>trend arrow</b> next to the color. That's a decide-once ruling at the next QGR packet.</p>
         <div class="against"><span class="tag">Against</span><p>"You're moving the goalposts for weak branches." — No score changes and the 90 line stays for everyone. This is about making sure the ruler's tick marks aren't finer than what the ruler can actually measure — the same measurement-honesty standard we applied to damages and the Games basis.</p></div>
+        <div class="reactions">
+          <div class="rlabel">What you said — unanimous no, and it produced a better answer</div>
+          <div class="react"><span class="who">Brian</span><span class="vote d">Disagree</span><span class="said">"I lean towards not moving the goal post. We need the score card to be consistent quarter to quarter so for some branches to have an extended two quarter timeline throws off the grading. If we move to 6 months then all branches should be on that same timeline."</span></div>
+          <div class="react"><span class="who">Amanda</span><span class="vote d">Disagree</span><span class="said">"This is just part of expansion, a smaller branch is in some way as much harder than a larger branch."</span></div>
+          <div class="react"><span class="who">Mike</span><span class="vote d">Disagree</span><span class="said">"The goalpost should not be different for branches we should just not be reactive off of limited sample sizes."</span></div>
+        </div>
+        <div class="callout warm" style="margin-top:14px">
+          <h4>Cameron's ruling, 8/28 — no longer window</h4>
+          <p>Three months stays the grading period for every branch, and there is <b>no rolling six-month window.</b> The full-year audit already proved a quarter carries enough volume everywhere. What changes is what a mid-quarter number <em>means</em>: it's a coaching update, not a grade. See Ruling 3 above.</p>
+        </div>
       </div>
     </div>
 
-    <div class="prop">
-      <div class="head"><span class="num">5</span><h4>Brian's 2→10: the 2 stays — and after a real recovery, we're allowed to ask for an updated score.</h4></div>
+    <div class="prop is-ratified">
+      <div class="head"><span class="num">5</span><h4>Brian's 2→10: the 2 stays — and after a real recovery, we're allowed to ask for an updated score.</h4><span class="verdict ratified">Ratified 3/3</span></div>
       <div class="body">
         <p>The survey truthfully measured that moment; the recovery is a different, better fact. And here's the part the math already handles (Cameron's point): if a recovered customer submits a <b>new, higher score, it immediately counterbalances the old detractor in the same formula</b> — no deletion needed. The score is self-repairing when recovery is real.</p>
         <p><b>The reality check from the audit: of all 166 detractors in the past 12 months, not one has ever submitted a second score.</b> Not because recovery never happens — callbacks happen ad hoc through claims today — but because asking for a GatherUp re-score doesn't appear to be part of anyone's play. We've asked customers to update <em>public reviews</em> before; whether anyone has ever asked for a GatherUp update we can't say for certain — but if we have, nobody's ever done it. Either way, the missing move is the same: after a genuine recovery, invite the update.</p>
         <p>The one guardrail: the invitation comes <b>after a real, logged recovery — never instead of one.</b> Asking an un-recovered detractor to reconsider their score is the score-begging Reichheld watched ruin the metric elsewhere, and it stays banned.</p>
         <div class="against"><span class="tag">Against</span><p>Gerald: "counting a recovered detractor punishes managers for doing exactly what you want." — It would, if the save were invisible. It isn't: the save shows up in recovery rate, and in the score itself whenever the recovered customer takes the re-score invitation. Integrity and incentive, both kept.</p></div>
+        <div class="reactions">
+          <div class="rlabel">What you said</div>
+          <div class="react"><span class="who">Brian</span><span class="vote a">Agree</span><span class="said">"Makes sense and I feel better understanding it's a one to one ratio."</span></div>
+          <div class="react"><span class="who">Amanda</span><span class="vote a">Agree</span><span class="said">(no comment given)</span></div>
+          <div class="react"><span class="who">Mike</span><span class="vote a">Agree</span><span class="said">"Agree with this addition after the recovery is attempted."</span></div>
+        </div>
       </div>
     </div>
 
@@ -367,14 +487,19 @@ blockquote .attr{display:block;font-style:normal;font-size:.7rem;color:var(--nav
 
     <div class="prop" id="overall">
       <div class="head"><span class="num">★</span><h4>Overall — ready to ratify this as the standing NPS ruling?</h4></div>
-      <div class="body"><p style="font-size:.85rem">Your read on the package as a whole. Anything you'd change lives best as a note on the specific item above — this one's the gut check.</p></div>
+      <div class="body">
+        <p style="font-size:.85rem">Your read on the package as a whole.</p>
+        <div class="reactions">
+          <div class="rlabel">What you said</div>
+          <div class="react"><span class="who">Brian</span><span class="vote a">Agree</span><span class="said">"I agree this package was helpful and agree to sign off on my responses above… I am leaning towards not changing much and working to better equip our teams with best practices for problem solving in the moment so negative NPS ratings are reduced, while also expanding our ability to source promoters so that detractors, valid or noise, have less impact on the overall score. I think if we can write this up and clearly define some of this and present that to our managers so everyone understands then I feel confident leading my managers on these principles."</span></div>
+          <div class="react"><span class="who">Amanda</span><span class="vote q">Discuss</span><span class="said">"Overall, I think we should let this stand as is. No one who was truly happy and pumped about their entire experience with us from booking to the move to damage resolutions is gonna rate us poorly. If we start picking and choosing reviews, then accountability gets lost and more excuses start to happen."</span></div>
+          <div class="react"><span class="who">Mike</span><span class="vote a">Agree</span><span class="said">"Agree but with the info I mentioned above."</span></div>
+        </div>
+      </div>
     </div>
 
-    <div class="export-bar">
-      <h4>Done reviewing? Send your reactions back.</h4>
-      <p>Your votes and notes save in this browser as you go. Hit the button — it copies a summary to your clipboard. <b>Paste it as a reply on <a href="https://einsteinmoving.monday.com/boards/1146915251/pulses/12916000453">the review pulse on the Sky Board</a></b> (one thread, everyone), then remove your name from the pulse's Owner column so we know you're done. Albert folds everyone's reactions into the final ruling.</p>
-      <button class="export-btn" id="exportBtn">Copy my reactions</button>
-      <textarea class="export-out" id="exportOut" readonly></textarea>
+    <div class="closed-note">
+      <b>Voting is closed.</b> Brian, Amanda and Mike returned reactions on 8/27–8/28; Matisen was excused by Cameron — the four primary contributors were enough to settle it. The ballot buttons below are inert now; the outcome lives in <a href="#landed">Where it landed</a>. Final decisions get made together next week.
     </div>
   </div>
 </section>
@@ -383,7 +508,7 @@ blockquote .attr{display:block;font-style:normal;font-size:.7rem;color:var(--nav
   <div class="wrap">
     <p><b style="color:#fff">Sources:</b> GatherUp Customer Activity full-year pull, 8/27/26 (166 detractor records + per-customer activity-log timelines, 0 fetch errors) · GatherUp Success Report 8/27/26 · QGR Q2 manifest v0.12.1 (branch NPS, targets, response volumes) · Roundtable Slack thread 8/27/26 · Reichheld, <em>The Ultimate Question 2.0</em> (2011 — incl. "Be Careful About Linking NPS to Compensation," per Bain's netpromotersystem.com summary); Reichheld/Darnell/Burns, "Net Promoter 3.0," HBR Nov–Dec 2021 (hbr.org/2021/11/net-promoter-3-0) — claims verified 8/27/26.</p>
     <p>Working file: <span style="color:#fff">Supporting Projects / Amanda – Customer Experience / NPS Detractor Analysis / 2026-08-27-detractor-analysis.md</span></p>
-    <p style="margin-top:10px">Prepared by Albert (Cameron's AI Chief of Staff) · August 27, 2026 · Internal — contains customer feedback excerpts and branch performance data. Not for external sharing. <span class="smallnote">v1.5 · 2026-08-27 (export routes to the Sky Board review pulse)</span></p>
+    <p style="margin-top:10px">Prepared by Albert (Cameron's AI Chief of Staff) · August 27, 2026 · Internal — contains customer feedback excerpts and branch performance data. Not for external sharing. <span class="smallnote">v2.0 · 2026-08-28 — reactions from Brian, Amanda and Mike folded in; ruling section added; voting closed. (v1.5 · 2026-08-27 was the ballot version.)</span></p>
   </div>
 </div>
 
@@ -489,8 +614,10 @@ blockquote .attr{display:block;font-style:normal;font-size:.7rem;color:var(--nav
   items.forEach(buildBallot);
   renderAll();
 
-  // export
-  document.getElementById('exportBtn').onclick = function(){
+  // export — removed in v2.0 (voting closed); guard so the ballot script still runs
+  var exportBtn = document.getElementById('exportBtn');
+  if (!exportBtn) return;
+  exportBtn.onclick = function(){
     if (!state.reviewer) { alert('Pick who you are at the top bar first.'); return; }
     var mv = state.votes[state.reviewer] || {};
     var lines = ['NPS POLICY BRIEF — reactions from ' + state.reviewer + ' (' + new Date().toLocaleDateString() + ')'];
